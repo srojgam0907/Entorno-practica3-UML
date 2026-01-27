@@ -10,6 +10,9 @@ public class Consola {
     /**
      * Crea un objeto Consola e inicializa el lector de entrada estándar.
      */
+	
+	private Scanner sc= new Scanner(System.in); 
+	
     public Consola() {
         this.sc = new Scanner(System.in);
     }
@@ -51,7 +54,10 @@ public class Consola {
      * @return Texto introducido por el usuario, sin espacios iniciales ni finales.
      */
     public String leerTexto(String mensaje) {
-
+    	escribirLinea(mensaje); 
+        String texto = sc.nextLine();
+        
+        return texto.trim(); 
     }
 
     /**
@@ -63,7 +69,19 @@ public class Consola {
      * @return Texto no vacío introducido por el usuario.
      */
     public String leerTextoNoVacio(String mensaje) {
-
+    	String texto = "";
+    	
+        while (texto.isBlank()) {
+        	escribirLinea(mensaje);
+            texto = sc.nextLine();
+            texto = texto.trim();
+            
+            if (texto.isBlank()) {
+                escribirLinea("ERROR - No puede estar vacío.");
+            } 
+        }
+        
+        return texto;
     }
 
     /**
@@ -74,7 +92,24 @@ public class Consola {
      * @return Número entero introducido por el usuario.
      */
     public int leerEntero(String mensaje) {
-        
+    	 int numero = 0;
+         boolean ok = false;
+
+         while (!ok) {
+        	 escribirLinea(mensaje);
+             String texto = sc.nextLine(); 
+             texto = texto.trim();
+
+             try {
+                 numero = Integer.parseInt(texto);
+                 ok = true;
+                 
+             } catch (NumberFormatException e) {
+                escribirLinea("ERROR - Introduce un número entero válido.");
+             }
+         }
+         
+         return numero;
     }
 
     /**
@@ -87,7 +122,14 @@ public class Consola {
      * @return Número entero dentro del rango indicado.
      */
     public int leerEnteroRango(String mensaje, int min, int max) {
-    
+    	 int numero = leerEntero(mensaje);
+    	 
+         while (numero < min || numero > max) {
+             escribirLinea("ERROR - Debe estar entre " + min + " y " + max + ".");
+             numero = leerEntero(mensaje);
+         }
+         
+         return numero; 
     }
 }
 
