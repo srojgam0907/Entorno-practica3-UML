@@ -97,7 +97,7 @@ public class Consola {
 
          while (!ok) {
         	 escribirLinea(mensaje);
-             String texto = sc.nextLine(); 
+             String texto = leerTexto(mensaje);  
              texto = texto.trim();
 
              try {

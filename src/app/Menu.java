@@ -13,14 +13,14 @@ public class Menu {
 	
 	//Muestra el menu
 	public void mostrar() {
-		System.out.println("\n====== AGENDA (Consola) ======");
-        System.out.println("1) Añadir contacto");
-        System.out.println("2) Listar contactos");
-        System.out.println("3) Buscar contacto");
-        System.out.println("4) Borrar contacto por ID");
-        System.out.println("5) Añadir teléfono a contacto");
-        System.out.println("0) Salir");
-        System.out.println("==============================");
+		consola.escribirLinea("\n====== AGENDA (Consola) ======");
+		consola.escribirLinea("1) Añadir contacto");
+		consola.escribirLinea("2) Listar contactos");
+		consola.escribirLinea("3) Buscar contacto");
+		consola.escribirLinea("4) Borrar contacto por ID");
+		consola.escribirLinea("5) Añadir teléfono a contacto");
+		consola.escribirLinea("0) Salir");
+		consola.escribirLinea("=============================="); 
 	}
 	
 	//Lee la opcion elegida por el usuario

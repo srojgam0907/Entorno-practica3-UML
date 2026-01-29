@@ -32,7 +32,7 @@ public class GestorAgenda {
    * Solicita al usuario los datos de un nuevo contacto, lo crea en la agenda y
    * permite definir su dirección y sus teléfonos.
    */
-	public void agregarContacto(Consola consola, Agenda agenda) {
+	public void agregarContacto() {
 		String nombre = consola.leerTextoNoVacio("Nombre: "); 
         String apellidos = consola.leerTextoNoVacio("Apellidos: ");
         String email = consola.leerTexto("Email (opcional): "); 

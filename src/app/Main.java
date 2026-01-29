@@ -17,7 +17,7 @@ public class Main {
             opcion = menu.leerOpcion();
 
             switch (opcion) {
-                case 1 -> gestor.agregarContacto(consola, agenda);
+                case 1 -> gestor.agregarContacto();
 
                 case 2 -> gestor.listarContactos();
 
@@ -28,9 +28,7 @@ public class Main {
                 case 5 -> gestor.agregarTelefono();
 
                 case 0 -> consola.escribirLinea("Saliendo...");
-
-                default -> consola.escribirLinea("Opción no válida.");
-                    
+     
             }
 
         } while (opcion != 0);
